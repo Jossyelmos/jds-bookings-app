@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Carousel from '../Carousel/Carousel';
 import './roomList.scss';
 
 const RoomList = ({ data }) => {
@@ -9,7 +10,7 @@ const RoomList = ({ data }) => {
           return (
               <Link to={`/rooms/all/${item._id}`} key={item._id} className='room-unit'>
                 <div className="img-wrapper">
-                  <img src={item.image[0]} alt="" />
+                  <Carousel data={item.image} />
                 </div>
                 <p className="name">{ item.name}</p>
               </Link>
