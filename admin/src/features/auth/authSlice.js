@@ -67,6 +67,7 @@ export const logoutUser = createAsyncThunk('auth/logout', async (_, thunkApi) =>
 
         // remove user from localstorage
         localStorage.removeItem('user');
+        localStorage.removeItem('token');
         return data;
 
     } catch (error) {
@@ -101,7 +102,7 @@ export const authSlice = createSlice ({
             .addCase(registerUser.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.isSuccess = true;
-                state.user = action.payload;     
+                state.user = action.payload;
             })
             .addCase(registerUser.rejected, (state, action) => {
                 state.isLoading = false;

@@ -26,7 +26,8 @@ const createRoom = async(req, res, next) => {
             res.status(400)
             throw new Error('There was a problem creating room')
         };
-        return res.status(201).json(room);
+        const rooms = await Room.find();
+        return res.status(200).json(rooms);
     } catch (error) {
         next(error);
     }
